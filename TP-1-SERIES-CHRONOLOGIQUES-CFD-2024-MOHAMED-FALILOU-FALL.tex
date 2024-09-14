@@ -1,0 +1,1909 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={TP1 SERIES CHRONOLOGIQUES CFD 2024},
+  pdfauthor={Mohamed Falilou Fall},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{TP1 SERIES CHRONOLOGIQUES CFD 2024}
+\author{Mohamed Falilou Fall}
+\date{2024-07-21}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{1. PRE-TRAITEMENT DE SERIES
+CHRONOLOGIQUES}\label{pre-traitement-de-series-chronologiques}
+
+\subsection{1.1 Transformations}\label{transformations}
+
+\subsubsection{1. Importation et stockage des
+donnees}\label{importation-et-stockage-des-donnees}
+
+\paragraph{1.1 CAC40}\label{cac40}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CAC40 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"CAC40.csv"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(CAC40,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Date  Indice
+## 1 2020-02-10 6015.67
+## 2 2020-02-11 6054.76
+## 3 2020-02-12 6104.73
+\end{verbatim}
+
+\paragraph{1.2 CAC40\_sans\_weekend}\label{cac40_sans_weekend}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CAC40\_sans\_weekend }\OtherTok{\textless{}{-}}\NormalTok{ (}\StringTok{"CAC40\_sans\_weekend.csv"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(CAC40\_sans\_weekend,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "CAC40_sans_weekend.csv"
+\end{verbatim}
+
+\paragraph{1.3 serie chronologique}\label{serie-chronologique}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{serie\_chronologique }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"serie\_chronologique.csv"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(serie\_chronologique,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          t         y
+## 1 3.982630 0.1922834
+## 2 5.581858 0.2234694
+## 3 8.592800 0.3014963
+\end{verbatim}
+
+\subsubsection{2. Isolation du temps et des mesures y(i) pour les
+visualiser}\label{isolation-du-temps-et-des-mesures-yi-pour-les-visualiser}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t }\OtherTok{\textless{}{-}}\NormalTok{ serie\_chronologique}\SpecialCharTok{$}\NormalTok{t}
+\NormalTok{y }\OtherTok{\textless{}{-}}\NormalTok{ serie\_chronologique}\SpecialCharTok{$}\NormalTok{y}
+
+\FunctionTok{plot}\NormalTok{(t,y)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-4-1.pdf}
+\#\#\# 3. Visualisation des transformations suivantes: exponentielle,
+logarithmique ou racine
+
+\paragraph{1. Exponentielle}\label{exponentielle}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(t,}\FunctionTok{exp}\NormalTok{(y))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-5-1.pdf}
+\#\#\#\# 2. logarithmique
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(t,}\FunctionTok{log}\NormalTok{(y))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\paragraph{3. Racine}\label{racine}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(t,}\FunctionTok{sqrt}\NormalTok{(y))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\subsubsection{4. Calcul du MSE d'un modele de regression lineaire pour
+evaluer si la serie brute a une forme
+lineaire.}\label{calcul-du-mse-dun-modele-de-regression-lineaire-pour-evaluer-si-la-serie-brute-a-une-forme-lineaire.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res\_lm  }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y}\SpecialCharTok{\textasciitilde{}}\NormalTok{t)}
+\NormalTok{residus }\OtherTok{\textless{}{-}}\NormalTok{ y }\SpecialCharTok{{-}}\NormalTok{ res\_lm[[}\StringTok{"fitted.values"}\NormalTok{]]}
+\NormalTok{MSE }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(residus}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(MSE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1403793
+\end{verbatim}
+
+\subsubsection{5.Transformation
+logarithmique}\label{transformation-logarithmique}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res\_lm\_log }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\FunctionTok{log}\NormalTok{(y)}\SpecialCharTok{\textasciitilde{}}\NormalTok{t)}
+\NormalTok{residus\_log }\OtherTok{\textless{}{-}}\NormalTok{ y }\SpecialCharTok{{-}} \FunctionTok{exp}\NormalTok{(res\_lm\_log[[}\StringTok{"fitted.values"}\NormalTok{]])}
+\NormalTok{MSE\_log }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(residus\_log}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(MSE\_log)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.01485173
+\end{verbatim}
+
+\subsubsection{6.Le MSE relatif a la transformaion racine
+carre}\label{le-mse-relatif-a-la-transformaion-racine-carre}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y\_sqrt }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(y)}
+\NormalTok{res\_lm\_sqrt }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y\_sqrt }\SpecialCharTok{\textasciitilde{}}\NormalTok{ t)}
+\NormalTok{residus\_sqrt }\OtherTok{\textless{}{-}}\NormalTok{ y }\SpecialCharTok{{-}}\NormalTok{ (res\_lm\_sqrt[[}\StringTok{"fitted.values"}\NormalTok{]])}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{MSE\_sqrt }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(residus\_sqrt}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(MSE\_sqrt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.05834192
+\end{verbatim}
+
+\subsubsection{7. Le MSE relatif a la transformation
+exponentielle}\label{le-mse-relatif-a-la-transformation-exponentielle}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res\_lm\_log }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\FunctionTok{log}\NormalTok{(y) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ t)}
+\NormalTok{fitted\_exp }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(res\_lm\_log[[}\StringTok{"fitted.values"}\NormalTok{]])}
+\NormalTok{residus\_exp }\OtherTok{\textless{}{-}}\NormalTok{ y }\SpecialCharTok{{-}}\NormalTok{ fitted\_exp}
+\NormalTok{MSE\_exp }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(residus\_exp}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(MSE\_exp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.01485173
+\end{verbatim}
+
+\subsubsection{8. Determination de la transformation qui permet le plus
+de se rapprocher d'une serie chronologique avec une forme lineaire au
+regard des differentes valeures de
+MSE}\label{determination-de-la-transformation-qui-permet-le-plus-de-se-rapprocher-dune-serie-chronologique-avec-une-forme-lineaire-au-regard-des-differentes-valeures-de-mse}
+
+\paragraph{8.1 Comparaison des MSE}\label{comparaison-des-mse}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comparaison des MSE}
+\NormalTok{MSE\_values }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(MSE, MSE\_log, MSE\_sqrt, MSE\_exp)}
+\FunctionTok{names}\NormalTok{(MSE\_values) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Linéaire"}\NormalTok{, }\StringTok{"Logarithmique"}\NormalTok{, }\StringTok{"Racine carrée"}\NormalTok{, }\StringTok{"Exponentielle"}\NormalTok{)}
+
+\CommentTok{\# Affichage des MSE}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Comparaison des MSE:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Comparaison des MSE:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(MSE\_values)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Linéaire Logarithmique Racine carrée Exponentielle 
+##    0.14037933    0.01485173    0.05834192    0.01485173
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Conclusion}
+\NormalTok{best\_transformation }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(MSE\_values)[}\FunctionTok{which.min}\NormalTok{(MSE\_values)]}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"La transformation qui permet le plus de se rapprocher d\textquotesingle{}une serie chronologique avec une forme lineaire est, la transformation:"}\NormalTok{, best\_transformation))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La transformation qui permet le plus de se rapprocher d'une serie chronologique avec une forme lineaire est, la transformation: Logarithmique"
+\end{verbatim}
+
+\paragraph{8.2 A l'aide des traces des
+MSE}\label{a-laide-des-traces-des-mse}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'ggplot2' a été compilé avec la version R 4.3.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mse\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Transformation =} \FunctionTok{c}\NormalTok{(}\StringTok{"Linéaire"}\NormalTok{, }\StringTok{"Logarithmique"}\NormalTok{, }\StringTok{"Racine carrée"}\NormalTok{, }\StringTok{"Exponentielle"}\NormalTok{),}
+  \AttributeTok{MSE =} \FunctionTok{c}\NormalTok{(MSE, MSE\_log, MSE\_sqrt, MSE\_exp)}
+\NormalTok{)}
+
+\FunctionTok{ggplot}\NormalTok{(mse\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Transformation, }\AttributeTok{y =}\NormalTok{ MSE, }\AttributeTok{fill =}\NormalTok{ Transformation)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Comparaison des MSE pour les différentes transformations"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Transformation"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"MSE"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\subsection{1.2 Series des differences}\label{series-des-differences}
+
+\subsubsection{1. Import et stockage du fichier
+CAC40\_sans\_weekend.csv}\label{import-et-stockage-du-fichier-cac40_sans_weekend.csv}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{serie\_brute }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"CAC40\_sans\_weekend.csv"}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(serie\_brute)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Date               Indice    
+##  Length:39          Min.   :3755  
+##  Class :character   1st Qu.:4232  
+##  Mode  :character   Median :5139  
+##                     Mean   :5017  
+##                     3rd Qu.:5904  
+##                     Max.   :6111
+\end{verbatim}
+
+\subsubsection{2. Tracage de la
+serie\_brute}\label{tracage-de-la-serie_brute}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Date }\OtherTok{\textless{}{-}}\NormalTok{ serie\_brute}\SpecialCharTok{$}\NormalTok{Date}
+\NormalTok{Indice }\OtherTok{\textless{}{-}}\NormalTok{ serie\_brute}\SpecialCharTok{$}\NormalTok{Indice}
+
+\NormalTok{serie\_brute}\SpecialCharTok{$}\NormalTok{Date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(serie\_brute}\SpecialCharTok{$}\NormalTok{Date, }\AttributeTok{format=}\StringTok{"\%Y{-}\%m{-}\%d"}\NormalTok{)}
+\NormalTok{serie\_brute }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(serie\_brute)}
+
+\FunctionTok{plot}\NormalTok{(serie\_brute}\SpecialCharTok{$}\NormalTok{Date, serie\_brute}\SpecialCharTok{$}\NormalTok{Indice, }\AttributeTok{type=}\StringTok{"l"}\NormalTok{, }\AttributeTok{col=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{,}
+     \AttributeTok{xlab=}\StringTok{"Date"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Indice"}\NormalTok{,}
+     \AttributeTok{main=}\StringTok{"Évolution de l\textquotesingle{}Indice CAC40 sur le Temps"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(serie\_brute)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          Date  Indice
+## 1  2020-02-10 6015.67
+## 2  2020-02-11 6054.76
+## 3  2020-02-12 6104.73
+## 4  2020-02-13 6093.14
+## 5  2020-02-14 6069.35
+## 6  2020-02-17 6085.95
+## 7  2020-02-18 6056.82
+## 8  2020-02-19 6111.24
+## 9  2020-02-20 6062.30
+## 10 2020-02-21 6029.72
+## 11 2020-02-24 5791.87
+## 12 2020-02-25 5679.68
+## 13 2020-02-26 5684.55
+## 14 2020-02-27 5495.60
+## 15 2020-02-28 5309.90
+## 16 2020-03-02 5333.52
+## 17 2020-03-03 5393.17
+## 18 2020-03-04 5464.89
+## 19 2020-03-05 5361.10
+## 20 2020-03-06 5139.11
+## 21 2020-03-09 4707.91
+## 22 2020-03-10 4636.61
+## 23 2020-03-11 4610.25
+## 24 2020-03-12 4044.26
+## 25 2020-03-13 4118.36
+## 26 2020-03-16 3881.46
+## 27 2020-03-17 3991.78
+## 28 2020-03-18 3754.84
+## 29 2020-03-19 3855.50
+## 30 2020-03-20 4048.80
+## 31 2020-03-23 3914.31
+## 32 2020-03-24 4242.70
+## 33 2020-03-25 4432.30
+## 34 2020-03-26 4543.58
+## 35 2020-03-27 4351.49
+## 36 2020-03-30 4378.51
+## 37 2020-03-31 4396.12
+## 38 2020-04-01 4207.24
+## 39 2020-04-02 4220.96
+\end{verbatim}
+
+\subsubsection{3. Calcul de la serie des
+differences}\label{calcul-de-la-serie-des-differences}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{diff}\NormalTok{(serie\_brute}\SpecialCharTok{$}\NormalTok{Indice)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   39.09   49.97  -11.59  -23.79   16.60  -29.13   54.42  -48.94  -32.58
+## [10] -237.85 -112.19    4.87 -188.95 -185.70   23.62   59.65   71.72 -103.79
+## [19] -221.99 -431.20  -71.30  -26.36 -565.99   74.10 -236.90  110.32 -236.94
+## [28]  100.66  193.30 -134.49  328.39  189.60  111.28 -192.09   27.02   17.61
+## [37] -188.88   13.72
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{serie\_diff }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+\AttributeTok{Date =}\NormalTok{ serie\_brute}\SpecialCharTok{$}\NormalTok{Date[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{],  }\AttributeTok{Indice\_diff =} \FunctionTok{diff}\NormalTok{(serie\_brute}\SpecialCharTok{$}\NormalTok{Indice))}
+\NormalTok{serie\_diff}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          Date Indice_diff
+## 1  2020-02-11       39.09
+## 2  2020-02-12       49.97
+## 3  2020-02-13      -11.59
+## 4  2020-02-14      -23.79
+## 5  2020-02-17       16.60
+## 6  2020-02-18      -29.13
+## 7  2020-02-19       54.42
+## 8  2020-02-20      -48.94
+## 9  2020-02-21      -32.58
+## 10 2020-02-24     -237.85
+## 11 2020-02-25     -112.19
+## 12 2020-02-26        4.87
+## 13 2020-02-27     -188.95
+## 14 2020-02-28     -185.70
+## 15 2020-03-02       23.62
+## 16 2020-03-03       59.65
+## 17 2020-03-04       71.72
+## 18 2020-03-05     -103.79
+## 19 2020-03-06     -221.99
+## 20 2020-03-09     -431.20
+## 21 2020-03-10      -71.30
+## 22 2020-03-11      -26.36
+## 23 2020-03-12     -565.99
+## 24 2020-03-13       74.10
+## 25 2020-03-16     -236.90
+## 26 2020-03-17      110.32
+## 27 2020-03-18     -236.94
+## 28 2020-03-19      100.66
+## 29 2020-03-20      193.30
+## 30 2020-03-23     -134.49
+## 31 2020-03-24      328.39
+## 32 2020-03-25      189.60
+## 33 2020-03-26      111.28
+## 34 2020-03-27     -192.09
+## 35 2020-03-30       27.02
+## 36 2020-03-31       17.61
+## 37 2020-04-01     -188.88
+## 38 2020-04-02       13.72
+\end{verbatim}
+
+\paragraph{\texorpdfstring{Explications: Le champ date recoit les dates
+de la serie brute privee du premier element parceque la serie des
+differences est la serie des mesures \texttt{zi\ =\ yi\ -\ yi-1} pour
+\texttt{i\textgreater{}1} donc la \texttt{Date} est egale a
+\texttt{Date{[}-1{]}} c'est a dire la date du jour precedent. La serie
+de date de la \texttt{serie\_diff}commence a \texttt{Date{[}+1{]}} de la
+serie
+brute.}{Explications: Le champ date recoit les dates de la serie brute privee du premier element parceque la serie des differences est la serie des mesures zi = yi - yi-1 pour i\textgreater1 donc la Date est egale a Date{[}-1{]} c'est a dire la date du jour precedent. La serie de date de la serie\_diffcommence a Date{[}+1{]} de la serie brute.}}\label{explications-le-champ-date-recoit-les-dates-de-la-serie-brute-privee-du-premier-element-parceque-la-serie-des-differences-est-la-serie-des-mesures-zi-yi---yi-1-pour-i1-donc-la-date-est-egale-a-date-1-cest-a-dire-la-date-du-jour-precedent.-la-serie-de-date-de-la-serie_diffcommence-a-date1-de-la-serie-brute.}
+
+\subsubsection{4. Visualisation de la serie des
+differences}\label{visualisation-de-la-serie-des-differences}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(serie\_diff)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\DecValTok{0}\NormalTok{, }\AttributeTok{col=}\StringTok{\textquotesingle{}gray50\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-19-1.pdf}
+\#\#\# 5. Calcul de la serie des differences relatives denomme
+\texttt{serie\_diff\_relative}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calcul des différences relatives}
+\CommentTok{\# Créer un vecteur pour les différences relatives}
+
+\NormalTok{serie\_diff\_relative }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\FunctionTok{length}\NormalTok{(serie\_diff}\SpecialCharTok{$}\NormalTok{Indice\_diff) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Calculer les différences relatives}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{2}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(serie\_diff}\SpecialCharTok{$}\NormalTok{Indice\_diff)) \{}
+\NormalTok{  serie\_diff\_relative[i }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ (serie\_diff}\SpecialCharTok{$}\NormalTok{Indice\_diff[i] }\SpecialCharTok{{-}}\NormalTok{ serie\_diff}\SpecialCharTok{$}\NormalTok{Indice\_diff[i }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{]) }\SpecialCharTok{/}\NormalTok{ serie\_diff}\SpecialCharTok{$}\NormalTok{Indice\_diff[i }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{]}
+\NormalTok{\}}
+
+\CommentTok{\# Ajouter des NA pour le premier élément}
+
+\NormalTok{serie\_diff\_relative }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{, serie\_diff\_relative)}
+
+\CommentTok{\# Afficher les premières valeurs de la série des différences relatives}
+
+\FunctionTok{print}\NormalTok{(serie\_diff\_relative)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]           NA   0.27833205  -1.23193916   1.05263158  -1.69777217
+##  [6]  -2.75481928  -2.86817714  -1.89930173  -0.33428688   6.30049110
+## [11]  -0.52831617  -1.04340850 -39.79876797  -0.01720032  -1.12719440
+## [16]   1.52540220   0.20234702  -2.44715561   1.13883804   0.94242984
+## [21]  -0.83464750  -0.63029453  20.47154780  -1.13092104  -4.19703104
+## [26]  -1.46568172  -3.14775199  -1.42483329   0.92032585  -1.69575789
+## [31]  -3.44174288  -0.42263772  -0.41308017  -2.72618620  -1.14066323
+## [36]  -0.34826055 -11.72572402  -1.07263871
+\end{verbatim}
+
+\subsubsection{\texorpdfstring{6. Visualisation de la
+\texttt{serie\_diff\_relative} avec la fonction
+`plot}{6. Visualisation de la serie\_diff\_relative avec la fonction `plot}}\label{visualisation-de-la-serie_diff_relative-avec-la-fonction-plot}
+
+`
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(serie\_diff\_relative)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\DecValTok{0}\NormalTok{, }\AttributeTok{col=}\StringTok{\textquotesingle{}gray50\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\subsection{1.3 Evolution du Prix du
+Bitcoin}\label{evolution-du-prix-du-bitcoin}
+
+\subsubsection{\texorpdfstring{1. Installation du package
+\texttt{coindeskr}}{1. Installation du package coindeskr}}\label{installation-du-package-coindeskr}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("devtools")}
+\CommentTok{\#devtools::install\_github("amrrs/coindeskr")}
+\FunctionTok{library}\NormalTok{(coindeskr)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{2. Telechargement des donnees du
+\texttt{Bitcoin} depuis
+internet}{2. Telechargement des donnees du Bitcoin depuis internet}}\label{telechargement-des-donnees-du-bitcoin-depuis-internet}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bitcoin\_data }\OtherTok{\textless{}{-}} \FunctionTok{get\_historic\_price}\NormalTok{(}\AttributeTok{start =} \StringTok{"2021{-}01{-}01"}\NormalTok{, }\AttributeTok{end =} \StringTok{"2021{-}03{-}31"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(bitcoin\_data, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               Price
+## 2021-01-01 29333.61
+## 2021-01-02 32154.17
+## 2021-01-03 33002.54
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bitcoin\_data}\SpecialCharTok{$}\NormalTok{Date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(bitcoin\_data))}
+\FunctionTok{head}\NormalTok{(bitcoin\_data,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               Price       Date
+## 2021-01-01 29333.61 2021-01-01
+## 2021-01-02 32154.17 2021-01-02
+## 2021-01-03 33002.54 2021-01-03
+\end{verbatim}
+
+\subsubsection{3. Presentation de la serie
+chronologique}\label{presentation-de-la-serie-chronologique}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Date, bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{, }\AttributeTok{main =} \StringTok{"Presentation de la Serie Chronologique : Prix du Bitcoin"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Date"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Prix"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\subsubsection{\texorpdfstring{4. Calcul et Plot de la serie des
+differences pour le prix du
+\texttt{Bitcoin}}{4. Calcul et Plot de la serie des differences pour le prix du Bitcoin}}\label{calcul-et-plot-de-la-serie-des-differences-pour-le-prix-du-bitcoin}
+
+\paragraph{\texorpdfstring{4.1 Calcul de la serie des differences pour
+le prix du
+\texttt{Bitcoin}}{4.1 Calcul de la serie des differences pour le prix du Bitcoin}}\label{calcul-de-la-serie-des-differences-pour-le-prix-du-bitcoin}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{diff}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  2820.5623   848.3690 -1570.9241  3001.9942  1842.1498  3437.7516
+##  [7]   805.9407  -260.5246 -1549.1586 -4300.1230  -195.0321  2802.3972
+## [13]  1418.8560 -1684.2785  -734.8054   359.0318   -29.2019   230.9101
+## [19] -1572.9870 -4398.3499  2762.1832 -1298.2685   215.6287   214.5299
+## [25]  -175.7003 -1789.5563  2873.2189  1434.3391  -220.1842 -1535.0033
+## [31]   525.9509  2019.5812  1764.5244  -141.1743   595.3445  2451.2032
+## [37] -1841.1184  6255.0041  1958.1662 -1437.3760  2263.4218   383.2854
+## [43]  -878.9923  2145.9770 -1025.1754   714.4223  3324.8881  -436.7938
+## [49]  3990.6956  -917.5558  2326.9940 -2946.7280 -6009.0371   572.5555
+## [55]  -454.0209 -2539.2972   890.4912 -1549.7995  4156.1074 -1348.1371
+## [61]  2911.0783 -2552.3681   890.2437  -270.5789  1715.5467   908.5595
+## [67]  2954.7797  2457.1361   721.5841  -330.5917  3436.8755  -545.1398
+## [73] -3897.5679   339.4498  1927.4999  -584.1891   468.6368   141.8710
+## [79]  -797.1351 -3467.1088   464.9391 -2006.5522  -613.8775  2309.1777
+## [85]  1751.3104  -890.4303  2283.7534  1106.7962    -9.8109
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{serie\_diff\_bitcoin }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+\AttributeTok{Date =}\NormalTok{ bitcoin\_data}\SpecialCharTok{$}\NormalTok{Date[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{],  }\AttributeTok{Indice\_diff =} \FunctionTok{diff}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price))}
+\NormalTok{serie\_diff\_bitcoin}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          Date Indice_diff
+## 1  2021-01-02   2820.5623
+## 2  2021-01-03    848.3690
+## 3  2021-01-04  -1570.9241
+## 4  2021-01-05   3001.9942
+## 5  2021-01-06   1842.1498
+## 6  2021-01-07   3437.7516
+## 7  2021-01-08    805.9407
+## 8  2021-01-09   -260.5246
+## 9  2021-01-10  -1549.1586
+## 10 2021-01-11  -4300.1230
+## 11 2021-01-12   -195.0321
+## 12 2021-01-13   2802.3972
+## 13 2021-01-14   1418.8560
+## 14 2021-01-15  -1684.2785
+## 15 2021-01-16   -734.8054
+## 16 2021-01-17    359.0318
+## 17 2021-01-18    -29.2019
+## 18 2021-01-19    230.9101
+## 19 2021-01-20  -1572.9870
+## 20 2021-01-21  -4398.3499
+## 21 2021-01-22   2762.1832
+## 22 2021-01-23  -1298.2685
+## 23 2021-01-24    215.6287
+## 24 2021-01-25    214.5299
+## 25 2021-01-26   -175.7003
+## 26 2021-01-27  -1789.5563
+## 27 2021-01-28   2873.2189
+## 28 2021-01-29   1434.3391
+## 29 2021-01-30   -220.1842
+## 30 2021-01-31  -1535.0033
+## 31 2021-02-01    525.9509
+## 32 2021-02-02   2019.5812
+## 33 2021-02-03   1764.5244
+## 34 2021-02-04   -141.1743
+## 35 2021-02-05    595.3445
+## 36 2021-02-06   2451.2032
+## 37 2021-02-07  -1841.1184
+## 38 2021-02-08   6255.0041
+## 39 2021-02-09   1958.1662
+## 40 2021-02-10  -1437.3760
+## 41 2021-02-11   2263.4218
+## 42 2021-02-12    383.2854
+## 43 2021-02-13   -878.9923
+## 44 2021-02-14   2145.9770
+## 45 2021-02-15  -1025.1754
+## 46 2021-02-16    714.4223
+## 47 2021-02-17   3324.8881
+## 48 2021-02-18   -436.7938
+## 49 2021-02-19   3990.6956
+## 50 2021-02-20   -917.5558
+## 51 2021-02-21   2326.9940
+## 52 2021-02-22  -2946.7280
+## 53 2021-02-23  -6009.0371
+## 54 2021-02-24    572.5555
+## 55 2021-02-25   -454.0209
+## 56 2021-02-26  -2539.2972
+## 57 2021-02-27    890.4912
+## 58 2021-02-28  -1549.7995
+## 59 2021-03-01   4156.1074
+## 60 2021-03-02  -1348.1371
+## 61 2021-03-03   2911.0783
+## 62 2021-03-04  -2552.3681
+## 63 2021-03-05    890.2437
+## 64 2021-03-06   -270.5789
+## 65 2021-03-07   1715.5467
+## 66 2021-03-08    908.5595
+## 67 2021-03-09   2954.7797
+## 68 2021-03-10   2457.1361
+## 69 2021-03-11    721.5841
+## 70 2021-03-12   -330.5917
+## 71 2021-03-13   3436.8755
+## 72 2021-03-14   -545.1398
+## 73 2021-03-15  -3897.5679
+## 74 2021-03-16    339.4498
+## 75 2021-03-17   1927.4999
+## 76 2021-03-18   -584.1891
+## 77 2021-03-19    468.6368
+## 78 2021-03-20    141.8710
+## 79 2021-03-21   -797.1351
+## 80 2021-03-22  -3467.1088
+## 81 2021-03-23    464.9391
+## 82 2021-03-24  -2006.5522
+## 83 2021-03-25   -613.8775
+## 84 2021-03-26   2309.1777
+## 85 2021-03-27   1751.3104
+## 86 2021-03-28   -890.4303
+## 87 2021-03-29   2283.7534
+## 88 2021-03-30   1106.7962
+## 89 2021-03-31     -9.8109
+\end{verbatim}
+
+\paragraph{\texorpdfstring{4.2 Plot de la serie des differences pour le
+prix du
+\texttt{Bitcoin}}{4.2 Plot de la serie des differences pour le prix du Bitcoin}}\label{plot-de-la-serie-des-differences-pour-le-prix-du-bitcoin}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(serie\_diff\_bitcoin)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+\section{2. LISSAGE DE SERIES
+CHRONOLOGIQUES}\label{lissage-de-series-chronologiques}
+
+\subsection{2.1 Lissage par la moyenne}\label{lissage-par-la-moyenne}
+
+\subsubsection{1. La fonction}\label{la-fonction}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{moyenne\_mobile }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(serie\_k)\{}
+\CommentTok{\# Determination de la taille de la serie }
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(serie)}
+\CommentTok{\# Definition du vecteur qui va recevoir la moyenne mobile d\textquotesingle{}ordre k }
+\NormalTok{mm\_k }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, n)}
+
+
+\CommentTok{\# Boucle pour chaque indice i pour lequel on peut calculer une moyenne mobile }
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in}\NormalTok{ (k}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\NormalTok{(n}\SpecialCharTok{{-}}\NormalTok{k)) \{}
+  \CommentTok{\#La moyenne de la serie pour les 2k indices autour de l\textquotesingle{}indice i est stockee }
+  \CommentTok{\# dans la ieme place du vecteur mm\_k}
+\NormalTok{  mm\_k[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(serie[(i}\SpecialCharTok{{-}}\NormalTok{k) }\SpecialCharTok{:}\NormalTok{ (i}\SpecialCharTok{+}\NormalTok{k)], }\AttributeTok{na.rm=}\NormalTok{True)}
+  
+  \CommentTok{\#L\textquotesingle{}option "na.rm=TRUE" de la fonction mean permet d\textquotesingle{}ignorer les valeures manquantes}
+  \CommentTok{\# (notees NA sous R) potentiellement presente dans la serie}
+\NormalTok{  \}}
+  
+
+
+\CommentTok{\# Renvoie du resultat }
+
+\FunctionTok{return}\NormalTok{(mm\_k)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{2. Importation du fichier \texttt{CAC40}
+et stockage dans un un objet
+\texttt{CAC40\_NA}}{2. Importation du fichier CAC40 et stockage dans un un objet CAC40\_NA}}\label{importation-du-fichier-cac40-et-stockage-dans-un-un-objet-cac40_na}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CAC40\_NA }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"CAC40.csv"}\NormalTok{)}
+\NormalTok{CAC40\_NA}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          Date  Indice
+## 1  2020-02-10 6015.67
+## 2  2020-02-11 6054.76
+## 3  2020-02-12 6104.73
+## 4  2020-02-13 6093.14
+## 5  2020-02-14 6069.35
+## 6  2020-02-15      NA
+## 7  2020-02-16      NA
+## 8  2020-02-17 6085.95
+## 9  2020-02-18 6056.82
+## 10 2020-02-19 6111.24
+## 11 2020-02-20 6062.30
+## 12 2020-02-21 6029.72
+## 13 2020-02-22      NA
+## 14 2020-02-23      NA
+## 15 2020-02-24 5791.87
+## 16 2020-02-25 5679.68
+## 17 2020-02-26 5684.55
+## 18 2020-02-27 5495.60
+## 19 2020-02-28 5309.90
+## 20 2020-02-29      NA
+## 21 2020-03-01      NA
+## 22 2020-03-02 5333.52
+## 23 2020-03-03 5393.17
+## 24 2020-03-04 5464.89
+## 25 2020-03-05 5361.10
+## 26 2020-03-06 5139.11
+## 27 2020-03-07      NA
+## 28 2020-03-08      NA
+## 29 2020-03-09 4707.91
+## 30 2020-03-10 4636.61
+## 31 2020-03-11 4610.25
+## 32 2020-03-12 4044.26
+## 33 2020-03-13 4118.36
+## 34 2020-03-14      NA
+## 35 2020-03-15      NA
+## 36 2020-03-16 3881.46
+## 37 2020-03-17 3991.78
+## 38 2020-03-18 3754.84
+## 39 2020-03-19 3855.50
+## 40 2020-03-20 4048.80
+## 41 2020-03-21      NA
+## 42 2020-03-22      NA
+## 43 2020-03-23 3914.31
+## 44 2020-03-24 4242.70
+## 45 2020-03-25 4432.30
+## 46 2020-03-26 4543.58
+## 47 2020-03-27 4351.49
+## 48 2020-03-28      NA
+## 49 2020-03-29      NA
+## 50 2020-03-30 4378.51
+## 51 2020-03-31 4396.12
+## 52 2020-04-01 4207.24
+## 53 2020-04-02 4220.96
+\end{verbatim}
+
+\subsubsection{3. Calcul de la moyenne mobile hebdomadaire (d'ordre
+3)}\label{calcul-de-la-moyenne-mobile-hebdomadaire-dordre-3}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Installation du Package \textasciigrave{}zoo\textasciigrave{}}
+
+\CommentTok{\#Pour calculer la moyenne mobile hebdomadaire d\textquotesingle{}ordre 3 en R, il est nécessaire de s\textquotesingle{}assurer que la fonction moyenne\_mobile est définie ou d\textquotesingle{}utiliser une fonction intégrée telle que \textasciigrave{}rollmean\textasciigrave{} du package zoo.}
+
+\CommentTok{\#install.packages("zoo")}
+\FunctionTok{library}\NormalTok{(zoo)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'zoo' a été compilé avec la version R 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attachement du package : 'zoo'
+\end{verbatim}
+
+\begin{verbatim}
+## Les objets suivants sont masqués depuis 'package:base':
+## 
+##     as.Date, as.Date.numeric
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Le message d\textquotesingle{}erreur }
+\CommentTok{\#Erreur dans \textasciigrave{}$\textless{}{-}.data.frame\textasciigrave{}(\textasciigrave{}*tmp*\textasciigrave{}, Indice\_mm, value = c(6058.38666666667,  : }
+  \CommentTok{\#le tableau de remplacement a 51 lignes, le tableau remplacé en a 53}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_mm }\OtherTok{\textless{}{-}} \FunctionTok{rollmean}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice, }\DecValTok{3}\NormalTok{, }\AttributeTok{fill =} \ConstantTok{NA}\NormalTok{, }\AttributeTok{align =} \StringTok{"right"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{4. Graphe de la serie chronologique de
+l'indice du \texttt{CAC40} et la serie de la moyenne mobile(en
+rouge)}{4. Graphe de la serie chronologique de l'indice du CAC40 et la serie de la moyenne mobile(en rouge)}}\label{graphe-de-la-serie-chronologique-de-lindice-du-cac40-et-la-serie-de-la-moyenne-mobileen-rouge}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ CAC40\_NA, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Date)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Indice, }\AttributeTok{color =} \StringTok{"Indice"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Indice\_mm, }\AttributeTok{color =} \StringTok{"Moyenne Mobile"}\NormalTok{), }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"CAC40 {-} Indice et Moyenne Mobile"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Date"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Valeur"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Indice"} \OtherTok{=} \StringTok{"blue"}\NormalTok{, }\StringTok{"Moyenne Mobile"} \OtherTok{=} \StringTok{"red"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## i Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 14 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 30 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+\end{verbatim}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-34-1.pdf}
+
+\subsubsection{5. Calcul et graphe des residus de la moyenne
+mobile}\label{calcul-et-graphe-des-residus-de-la-moyenne-mobile}
+
+\paragraph{5.1 Calcul des residus de la moyenne
+mobile}\label{calcul-des-residus-de-la-moyenne-mobile}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CAC40\_NA}\SpecialCharTok{$}\NormalTok{Residus }\OtherTok{\textless{}{-}}\NormalTok{ CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice }\SpecialCharTok{{-}}\NormalTok{ CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_mm}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{5.2 Graphe des residus de la moyenne
+mobile}\label{graphe-des-residus-de-la-moyenne-mobile}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ CAC40\_NA, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Date)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Indice, }\AttributeTok{color =} \StringTok{"Indice"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Indice\_mm, }\AttributeTok{color =} \StringTok{"Moyenne Mobile"}\NormalTok{), }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"CAC40 {-} Indice et Moyenne Mobile"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Date"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Valeur"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Indice"} \OtherTok{=} \StringTok{"blue"}\NormalTok{, }\StringTok{"Moyenne Mobile"} \OtherTok{=} \StringTok{"red"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 14 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 30 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+\end{verbatim}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-36-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Graphe des résidus}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ CAC40\_NA, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Date, }\AttributeTok{y =}\NormalTok{ Residus)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"purple"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"CAC40 {-} Résidus de la Moyenne Mobile"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Date"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Résidus"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 30 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+\end{verbatim}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-36-2.pdf}
+
+\subsection{2.2 Lissage exponentielle}\label{lissage-exponentielle}
+
+\subsubsection{1. Fonction}\label{fonction}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#lissage\_exponentielle \textless{}{-} function(serie, gamma) \{ }
+\CommentTok{\# Determination de la taille de la serie }
+  \DocumentationTok{\#\#n \textless{}{-} length(serie)}
+\CommentTok{\# Definition du vecteur qui va recevoir le lissage exponentielle }
+  \CommentTok{\#le\_gamma \textless{}{-} rep(NA, n)}
+\CommentTok{\# (Ce vecteur est plus grand que la serie brute afin de pouvoir y stocker }
+\CommentTok{\# une valeure initiale (necessaire pour la formule de recursivite du lissage }
+\CommentTok{\# exponentielle ).}
+  \CommentTok{\# }
+  
+\CommentTok{\# Cette partie du code permet de prendre en charge les donnees manquantes }
+\CommentTok{\# dans la serie brute.}
+\CommentTok{\# Il n\textquotesingle{}est pas necessaire de comprendre cette partie. }
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+  \CommentTok{\#index \textless{}{-} NULL}
+  \CommentTok{\#if sum(is.na(serie))\textgreater{}0)\{}
+    \CommentTok{\#n\_tmp \textless{}{-} n}
+    \CommentTok{\#n \textless{}{-} sum(!is.na(serie))}
+    \CommentTok{\#le\_gamma \textless{}{-} rep(NA, n)}
+    
+    
+    \CommentTok{\#index \textless{}{-} which(!is.na(serie))}
+    \CommentTok{\#serie \textless{}{-} serie[index]}
+  \CommentTok{\#\}}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\CommentTok{\# La valeur initiale de la serie lissee est la moyenne des trois premieres valeurs }
+\CommentTok{\# de la serie brute.}
+\CommentTok{\#le\_gamma[1] \textless{}{-} mean(serie[1:3])}
+
+
+\CommentTok{\# Faire un boucle pour appliquer succesivement la formule de recursivite }
+\CommentTok{\# du lissage exponentielle }
+\CommentTok{\#for(k in 1:(n{-}1)) \{}
+  \CommentTok{\#le\_gamma[k+1] \textless{}{-} gamma * serie[k+1] + (1{-}gamma)*le\_gamma[k]\}}
+  
+
+\CommentTok{\# Cette partie du code permet de remettre des valeurs manquantes aux bons indices }
+\CommentTok{\# s\textquotesingle{}il y en avait dans la serie brute.}
+\CommentTok{\# Il n\textquotesingle{}est pas necessaire de comprendre cette partie. }
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\CommentTok{\#if(!is.null(index))\{}
+  \CommentTok{\#le\_gamma\_tmp \textless{}{-} le\_gamma}
+  \CommentTok{\#le\_gamma \textless{}{-} rep(NA, n\_tmp)}
+  \CommentTok{\#le\_gamma[index] \textless{}{-} le\_gamma\_tmp}
+\CommentTok{\#\}}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+  
+\CommentTok{\# Renvoi du resultat}
+\CommentTok{\#return(le\_gamma)}
+
+\CommentTok{\#\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{2. Calcul de la serie lissee par lissage
+exponentielle simple
+\texttt{les}}{2. Calcul de la serie lissee par lissage exponentielle simple les}}\label{calcul-de-la-serie-lissee-par-lissage-exponentielle-simple-les}
+
+\paragraph{2.1 Les packages requis}\label{les-packages-requis}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("forecast")}
+\CommentTok{\#install.packages("ggplot2")}
+\CommentTok{\#install.packages("stats")}
+\FunctionTok{library}\NormalTok{(forecast)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'forecast' a été compilé avec la version R 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'quantmod':
+##   method            from
+##   as.zoo.data.frame zoo
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(stats)}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{2.2 Traitement des valeures
+manquantes}\label{traitement-des-valeures-manquantes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verification des valeurs NA, NaN}
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice))  }\CommentTok{\# Nombre de NA}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.nan}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice))  }\CommentTok{\# Nombre de NaN}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Nettoyage des données en supprimant les lignes contenant NA, NaN}
+\NormalTok{CAC40\_NA }\OtherTok{\textless{}{-}}\NormalTok{ CAC40\_NA[}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice) }\SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.nan}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice), ]}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{\texorpdfstring{2.3 Calcul de la serie lissee par lissage
+exponentielle simple
+\texttt{les}}{2.3 Calcul de la serie lissee par lissage exponentielle simple les}}\label{calcul-de-la-serie-lissee-par-lissage-exponentielle-simple-les-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Application du lissage exponentiel simple avec HoltWinters}
+
+\NormalTok{ts\_data }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice, }\AttributeTok{frequency =} \DecValTok{30}\NormalTok{)  }\CommentTok{\# Ajustez la fréquence si nécessaire}
+\NormalTok{lissage\_exponentiel }\OtherTok{\textless{}{-}} \FunctionTok{HoltWinters}\NormalTok{(ts\_data, }\AttributeTok{beta =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{gamma =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Extraction des valeurs lissées}
+\NormalTok{Indice\_les }\OtherTok{\textless{}{-}} \FunctionTok{fitted}\NormalTok{(lissage\_exponentiel)[, }\StringTok{"xhat"}\NormalTok{]}
+
+\CommentTok{\# Ajustement des longueurs}
+\NormalTok{min\_length }\OtherTok{\textless{}{-}} \FunctionTok{min}\NormalTok{(}\FunctionTok{length}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice), }\FunctionTok{length}\NormalTok{(Indice\_les))}
+\NormalTok{CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_les }\OtherTok{\textless{}{-}} \ConstantTok{NA}  \CommentTok{\# Créer la colonne avec des NA}
+\NormalTok{CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_les[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{min\_length] }\OtherTok{\textless{}{-}}\NormalTok{ Indice\_les[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{min\_length]  }\CommentTok{\# Remplacer les valeurs lissées}
+
+\CommentTok{\# la longueur }
+\FunctionTok{length}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 39
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_les)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 39
+\end{verbatim}
+
+\subsubsection{3. Calcul de la serie lissee par lissage exponentielle
+double
+(LED)}\label{calcul-de-la-serie-lissee-par-lissage-exponentielle-double-led}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice)  }\CommentTok{\# Longueur des données originales}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 39
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lissage\_exponentiel\_double }\OtherTok{\textless{}{-}} \FunctionTok{HoltWinters}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice, }\AttributeTok{beta =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{gamma =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{length}\NormalTok{(}\FunctionTok{fitted}\NormalTok{(lissage\_exponentiel\_double))  }\CommentTok{\# Longueur des valeurs lissées}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 111
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Appliquer le lissage exponentiel double}
+\FunctionTok{library}\NormalTok{(forecast)}
+\NormalTok{ts\_data }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice, }\AttributeTok{frequency =} \DecValTok{30}\NormalTok{)}
+\NormalTok{lissage\_exponentiel\_double }\OtherTok{\textless{}{-}} \FunctionTok{ets}\NormalTok{(ts\_data, }\AttributeTok{model =} \StringTok{"AAN"}\NormalTok{)}
+
+\CommentTok{\# Extraire les valeurs lissées}
+\NormalTok{valeurs\_led }\OtherTok{\textless{}{-}} \FunctionTok{fitted}\NormalTok{(lissage\_exponentiel\_double)}
+
+\CommentTok{\# Vérifiez les valeurs lissées}
+\CommentTok{\#head(valeurs\_lisse)}
+
+\CommentTok{\# Ajuster la longueur}
+\NormalTok{min\_length }\OtherTok{\textless{}{-}} \FunctionTok{min}\NormalTok{(}\FunctionTok{length}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice), }\FunctionTok{length}\NormalTok{(valeurs\_led))}
+\NormalTok{CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_led }\OtherTok{\textless{}{-}} \ConstantTok{NA}  \CommentTok{\# Créer une colonne avec des NA}
+\NormalTok{CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_led[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{min\_length] }\OtherTok{\textless{}{-}}\NormalTok{ valeurs\_led[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{min\_length]}
+
+\CommentTok{\# Vérifiez les dimensions}
+\FunctionTok{length}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 39
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_led)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 39
+\end{verbatim}
+
+\subsubsection{4. Tracage de la serie chronologique et les series
+lissees par LES et
+LED.}\label{tracage-de-la-serie-chronologique-et-les-series-lissees-par-les-et-led.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Tracer le graphique}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ CAC40\_NA, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Date)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Indice, }\AttributeTok{color =} \StringTok{"Indice"}\NormalTok{), }\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Indice\_les, }\AttributeTok{color =} \StringTok{"LES (Lissage Exponentiel Simple)"}\NormalTok{), }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Indice\_led, }\AttributeTok{color =} \StringTok{"LED (Lissage Exponentiel Double)"}\NormalTok{), }\AttributeTok{linetype =} \StringTok{"dotted"}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"CAC40 {-} Indice et Séries Lissées (LES et LED)"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Date"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Valeur"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Indice"} \OtherTok{=} \StringTok{"blue"}\NormalTok{, }
+                                \StringTok{"LES (Lissage Exponentiel Simple)"} \OtherTok{=} \StringTok{"green"}\NormalTok{, }
+                                \StringTok{"LED (Lissage Exponentiel Double)"} \OtherTok{=} \StringTok{"red"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+\end{verbatim}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-43-1.pdf}
+
+\subsubsection{5. Graphe des residus de chacune des series
+lissees}\label{graphe-des-residus-de-chacune-des-series-lissees}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calcul des résidus}
+\NormalTok{CAC40\_NA}\SpecialCharTok{$}\NormalTok{Residus\_les }\OtherTok{\textless{}{-}}\NormalTok{ CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice }\SpecialCharTok{{-}}\NormalTok{ CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_les}
+\NormalTok{CAC40\_NA}\SpecialCharTok{$}\NormalTok{Residus\_led }\OtherTok{\textless{}{-}}\NormalTok{ CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice }\SpecialCharTok{{-}}\NormalTok{ CAC40\_NA}\SpecialCharTok{$}\NormalTok{Indice\_led}
+
+\CommentTok{\# Graphe des residus }
+\CommentTok{\# Tracer les résidus}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ CAC40\_NA, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Date)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Residus\_les, }\AttributeTok{color =} \StringTok{"Résidus LES"}\NormalTok{), }\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Residus\_led, }\AttributeTok{color =} \StringTok{"Résidus LED"}\NormalTok{), }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"CAC40 {-} Résidus des Séries Lissées (LES et LED)"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Date"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Résidus"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Résidus LES"} \OtherTok{=} \StringTok{"green"}\NormalTok{, }\StringTok{"Résidus LED"} \OtherTok{=} \StringTok{"red"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+## `geom_line()`: Each group consists of only one observation.
+## i Do you need to adjust the group aesthetic?
+\end{verbatim}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-44-1.pdf}
+
+\section{3. TENDANCE ET PERIODICITE}\label{tendance-et-periodicite}
+
+\subsubsection{1. Importation des prix du Bitcoin depuis le 12 Mars 2020
+:}\label{importation-des-prix-du-bitcoin-depuis-le-12-mars-2020}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(coindeskr)}
+\NormalTok{bitcoin\_data }\OtherTok{\textless{}{-}} \FunctionTok{get\_historic\_price}\NormalTok{(}\AttributeTok{start=}\StringTok{"2021{-}03{-}12"}\NormalTok{, }\AttributeTok{end =} \StringTok{"2021{-}04{-}07"}\NormalTok{)}
+\NormalTok{bitcoin\_data}\SpecialCharTok{$}\NormalTok{Date }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price)}
+\FunctionTok{print}\NormalTok{(bitcoin\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               Price Date
+## 2021-01-01 29333.61    1
+## 2021-01-02 32154.17    2
+## 2021-01-03 33002.54    3
+## 2021-01-04 31431.61    4
+## 2021-01-05 34433.61    5
+## 2021-01-06 36275.76    6
+## 2021-01-07 39713.51    7
+## 2021-01-08 40519.45    8
+## 2021-01-09 40258.92    9
+## 2021-01-10 38709.77   10
+## 2021-01-11 34409.64   11
+## 2021-01-12 34214.61   12
+## 2021-01-13 37017.01   13
+## 2021-01-14 38435.86   14
+## 2021-01-15 36751.58   15
+## 2021-01-16 36016.78   16
+## 2021-01-17 36375.81   17
+## 2021-01-18 36346.61   18
+## 2021-01-19 36577.52   19
+## 2021-01-20 35004.53   20
+## 2021-01-21 30606.18   21
+## 2021-01-22 33368.37   22
+## 2021-01-23 32070.10   23
+## 2021-01-24 32285.73   24
+## 2021-01-25 32500.26   25
+## 2021-01-26 32324.56   26
+## 2021-01-27 30535.00   27
+## 2021-01-28 33408.22   28
+## 2021-01-29 34842.56   29
+## 2021-01-30 34622.37   30
+## 2021-01-31 33087.37   31
+## 2021-02-01 33613.32   32
+## 2021-02-02 35632.90   33
+## 2021-02-03 37397.43   34
+## 2021-02-04 37256.25   35
+## 2021-02-05 37851.60   36
+## 2021-02-06 40302.80   37
+## 2021-02-07 38461.68   38
+## 2021-02-08 44716.69   39
+## 2021-02-09 46674.85   40
+## 2021-02-10 45237.48   41
+## 2021-02-11 47500.90   42
+## 2021-02-12 47884.18   43
+## 2021-02-13 47005.19   44
+## 2021-02-14 49151.17   45
+## 2021-02-15 48125.99   46
+## 2021-02-16 48840.41   47
+## 2021-02-17 52165.30   48
+## 2021-02-18 51728.51   49
+## 2021-02-19 55719.20   50
+## 2021-02-20 54801.65   51
+## 2021-02-21 57128.64   52
+## 2021-02-22 54181.91   53
+## 2021-02-23 48172.88   54
+## 2021-02-24 48745.43   55
+## 2021-02-25 48291.41   56
+## 2021-02-26 45752.11   57
+## 2021-02-27 46642.61   58
+## 2021-02-28 45092.81   59
+## 2021-03-01 49248.91   60
+## 2021-03-02 47900.78   61
+## 2021-03-03 50811.86   62
+## 2021-03-04 48259.49   63
+## 2021-03-05 49149.73   64
+## 2021-03-06 48879.15   65
+## 2021-03-07 50594.70   66
+## 2021-03-08 51503.26   67
+## 2021-03-09 54458.04   68
+## 2021-03-10 56915.17   69
+## 2021-03-11 57636.76   70
+## 2021-03-12 57306.17   71
+## 2021-03-13 60743.04   72
+## 2021-03-14 60197.90   73
+## 2021-03-15 56300.33   74
+## 2021-03-16 56639.78   75
+## 2021-03-17 58567.28   76
+## 2021-03-18 57983.09   77
+## 2021-03-19 58451.73   78
+## 2021-03-20 58593.60   79
+## 2021-03-21 57796.47   80
+## 2021-03-22 54329.36   81
+## 2021-03-23 54794.30   82
+## 2021-03-24 52787.75   83
+## 2021-03-25 52173.87   84
+## 2021-03-26 54483.05   85
+## 2021-03-27 56234.36   86
+## 2021-03-28 55343.93   87
+## 2021-03-29 57627.68   88
+## 2021-03-30 58734.48   89
+## 2021-03-31 58724.66   90
+\end{verbatim}
+
+\subsubsection{\texorpdfstring{2. La tendance lineaire de cette serie
+chronologique avec la fonction lm et stockage des resultats dans un
+objet
+\texttt{tendance}}{2. La tendance lineaire de cette serie chronologique avec la fonction lm et stockage des resultats dans un objet tendance}}\label{la-tendance-lineaire-de-cette-serie-chronologique-avec-la-fonction-lm-et-stockage-des-resultats-dans-un-objet-tendance}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Conversion en série temporelle}
+\NormalTok{ts\_data\_bitcoin }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price, }\AttributeTok{frequency =} \DecValTok{30}\NormalTok{)}
+
+
+\CommentTok{\# Calcul de la tendance linéaire}
+\CommentTok{\# Nous devons créer une variable de temps pour l\textquotesingle{}ajustement du modèle linéaire}
+\NormalTok{time\_index }\OtherTok{\textless{}{-}} \FunctionTok{seq\_along}\NormalTok{(ts\_data\_bitcoin)}
+\NormalTok{tendance\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ts\_data\_bitcoin }\SpecialCharTok{\textasciitilde{}}\NormalTok{ time\_index)}
+
+\CommentTok{\# Stocker les résultats dans un objet \textasciigrave{}tendance\textasciigrave{}}
+\NormalTok{bitcoin\_data}\SpecialCharTok{$}\NormalTok{tendance }\OtherTok{\textless{}{-}} \FunctionTok{fitted}\NormalTok{(tendance\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{3. Les residus de la tendance lineaire
+:}\label{les-residus-de-la-tendance-lineaire}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price\_detrend }\OtherTok{\textless{}{-}}\NormalTok{ bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price }\SpecialCharTok{{-}}\NormalTok{ tendance\_model}\SpecialCharTok{$}\NormalTok{fitted.values}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{5. Application de la fonction sur la serie
+tendancee}\label{application-de-la-fonction-sur-la-serie-tendancee}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{calcul\_periodicite }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(bitcoin\_data, p) \{}
+\NormalTok{  n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(bitcoin\_data)}
+\NormalTok{  N }\OtherTok{\textless{}{-}} \FunctionTok{floor}\NormalTok{(n }\SpecialCharTok{/}\NormalTok{ p)}
+\NormalTok{  periode }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, p)}
+  
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p) \{}
+\NormalTok{    indices }\OtherTok{\textless{}{-}}\NormalTok{ i }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{0}\SpecialCharTok{:}\NormalTok{N) }\SpecialCharTok{*}\NormalTok{ p}
+\NormalTok{    indices }\OtherTok{\textless{}{-}}\NormalTok{ indices[indices }\SpecialCharTok{\textless{}=}\NormalTok{ n]  }\CommentTok{\# Pour éviter les indices dépassant la longueur de bitcoin\_data}
+\NormalTok{    periode[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(bitcoin\_data[indices], }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \ControlFlowTok{if}\NormalTok{ (n }\SpecialCharTok{==}\NormalTok{ N }\SpecialCharTok{*}\NormalTok{ p) \{}
+\NormalTok{    Date }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(periode, N)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    Date }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(periode, N), periode[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{(n }\SpecialCharTok{{-}}\NormalTok{ N }\SpecialCharTok{*}\NormalTok{ p)])}
+\NormalTok{  \}}
+  
+  \FunctionTok{return}\NormalTok{(Date)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{periodicite }\OtherTok{\textless{}{-}} \FunctionTok{calcul\_periodicite}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price\_detrend, }\DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{6. Representation de la Periodicite de la serie
+detendancee}\label{representation-de-la-periodicite-de-la-serie-detendancee}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OtherTok{\textless{}{-}} \DecValTok{7}
+\NormalTok{N }\OtherTok{\textless{}{-}} \FunctionTok{floor}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(bitcoin\_data) }\SpecialCharTok{/}\NormalTok{ p)}
+
+
+\NormalTok{bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(bitcoin\_data))}
+\FunctionTok{plot}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price\_detrend)}
+\FunctionTok{lines}\NormalTok{(periodicite)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{N) \{}
+  \FunctionTok{rect}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours[}\DecValTok{3}\SpecialCharTok{+}\NormalTok{(i}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\NormalTok{p], }\SpecialCharTok{{-}}\DecValTok{6000}\NormalTok{, bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours[}\DecValTok{4}\SpecialCharTok{+}\NormalTok{(i}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\NormalTok{p], }\DecValTok{6000}\NormalTok{, }
+       \AttributeTok{col =} \StringTok{"gray"}\NormalTok{, }\AttributeTok{density =} \DecValTok{20}\NormalTok{, }\AttributeTok{border =} \ConstantTok{NA}\NormalTok{)}
+  \FunctionTok{text}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours[}\FloatTok{3.5}\SpecialCharTok{+}\NormalTok{(i}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\NormalTok{p], }\DecValTok{500}\NormalTok{, }\AttributeTok{labels =} \StringTok{"Week{-}end"}\NormalTok{, }\AttributeTok{col =} \StringTok{"gray30"}\NormalTok{)}
+  
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-50-1.pdf}
+
+\section{4. MODELE ADDITIF POUR PREDIRE L'EVOLUTION DU PRIX DU
+BITCOIN}\label{modele-additif-pour-predire-levolution-du-prix-du-bitcoin}
+
+\subsection{4.1 Rappel du model additif}\label{rappel-du-model-additif}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Le modèle additif avec une tendance linéaire et une périodicité de 7 jours s\textquotesingle{}écrit comme suit :}
+
+\CommentTok{\# Yt = (β0 + β1t) + St + Et }
+\CommentTok{\# Ou St représente la composante saisonnière avec une période de 7 jours. Le nombre total de paramètres à estimer est de 9 :}
+\CommentTok{\# * 2 pour la tendance lineaire (β0 et β1)}
+\CommentTok{\# * 7 pour la composante saisonnière (un pour chaque jour de la période).}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{4.2 Calcul des predictions du modele additif et sa
+courbe}\label{calcul-des-predictions-du-modele-additif-et-sa-courbe}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{calcul\_periodicite }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(bitcoin\_data, p) \{}
+\NormalTok{  n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(bitcoin\_data)}
+\NormalTok{  N }\OtherTok{\textless{}{-}} \FunctionTok{floor}\NormalTok{(n }\SpecialCharTok{/}\NormalTok{ p)}
+\NormalTok{  periode }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, p)}
+  
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p) \{}
+\NormalTok{    indices }\OtherTok{\textless{}{-}}\NormalTok{ i }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{0}\SpecialCharTok{:}\NormalTok{N) }\SpecialCharTok{*}\NormalTok{ p}
+\NormalTok{    indices }\OtherTok{\textless{}{-}}\NormalTok{ indices[indices }\SpecialCharTok{\textless{}=}\NormalTok{ n]  }\CommentTok{\# Pour éviter les indices dépassant la longueur de bitcoin\_data}
+\NormalTok{    periode[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(bitcoin\_data[indices], }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \ControlFlowTok{if}\NormalTok{ (n }\SpecialCharTok{==}\NormalTok{ N }\SpecialCharTok{*}\NormalTok{ p) \{}
+\NormalTok{    Date }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(periode, N)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    Date }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(periode, N), periode[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{(n }\SpecialCharTok{{-}}\NormalTok{ N }\SpecialCharTok{*}\NormalTok{ p)])}
+\NormalTok{  \}}
+  
+  \FunctionTok{return}\NormalTok{(Date)}
+\NormalTok{\}}
+
+\CommentTok{\# Calcule de la périodicité}
+\NormalTok{p }\OtherTok{\textless{}{-}} \DecValTok{7}  
+\NormalTok{periodicite }\OtherTok{\textless{}{-}} \FunctionTok{calcul\_periodicite}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price\_detrend, p)}
+\NormalTok{bitcoin\_data}\SpecialCharTok{$}\NormalTok{periodicite }\OtherTok{\textless{}{-}}\NormalTok{ periodicite}
+
+\FunctionTok{print}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{periodicite)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  277.79741  481.83456   69.89927 -480.24264 -418.38023   83.69869
+##  [7]  -15.82432  277.79741  481.83456   69.89927 -480.24264 -418.38023
+## [13]   83.69869  -15.82432  277.79741  481.83456   69.89927 -480.24264
+## [19] -418.38023   83.69869  -15.82432  277.79741  481.83456   69.89927
+## [25] -480.24264 -418.38023   83.69869  -15.82432  277.79741  481.83456
+## [31]   69.89927 -480.24264 -418.38023   83.69869  -15.82432  277.79741
+## [37]  481.83456   69.89927 -480.24264 -418.38023   83.69869  -15.82432
+## [43]  277.79741  481.83456   69.89927 -480.24264 -418.38023   83.69869
+## [49]  -15.82432  277.79741  481.83456   69.89927 -480.24264 -418.38023
+## [55]   83.69869  -15.82432  277.79741  481.83456   69.89927 -480.24264
+## [61] -418.38023   83.69869  -15.82432  277.79741  481.83456   69.89927
+## [67] -480.24264 -418.38023   83.69869  -15.82432  277.79741  481.83456
+## [73]   69.89927 -480.24264 -418.38023   83.69869  -15.82432  277.79741
+## [79]  481.83456   69.89927 -480.24264 -418.38023   83.69869  -15.82432
+## [85]  277.79741  481.83456   69.89927 -480.24264 -418.38023   83.69869
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours, bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price, }\AttributeTok{type =} \StringTok{"l"}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }
+     \AttributeTok{main =} \StringTok{"Prix avec tendance linéaire et périodicité"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Date"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Price"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours, bitcoin\_data}\SpecialCharTok{$}\NormalTok{tendance, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours, bitcoin\_data}\SpecialCharTok{$}\NormalTok{periodicite, }\AttributeTok{col =} \StringTok{"green"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours, bitcoin\_data}\SpecialCharTok{$}\NormalTok{hat\_Price, }\AttributeTok{col =} \StringTok{"purple"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topleft"}\NormalTok{, }\AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"Observed"}\NormalTok{, }\StringTok{"Trend"}\NormalTok{, }\StringTok{"Periodicite"}\NormalTok{, }\StringTok{"Predictions"}\NormalTok{),}
+       \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\StringTok{"red"}\NormalTok{, }\StringTok{"green"}\NormalTok{, }\StringTok{"purple"}\NormalTok{), }\AttributeTok{lty =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-53-1.pdf}
+\#\# 4.3. Calcul des residus de ce modele et sa graphe
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calcul des prédictions du modèle additif}
+\NormalTok{bitcoin\_data}\SpecialCharTok{$}\NormalTok{hat\_Price }\OtherTok{\textless{}{-}}\NormalTok{ bitcoin\_data}\SpecialCharTok{$}\NormalTok{tendance }\SpecialCharTok{+}\NormalTok{ bitcoin\_data}\SpecialCharTok{$}\NormalTok{periodicite}
+
+\CommentTok{\# Calcul des résidus}
+\NormalTok{bitcoin\_data}\SpecialCharTok{$}\NormalTok{residus }\OtherTok{\textless{}{-}}\NormalTok{ bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price }\SpecialCharTok{{-}}\NormalTok{ bitcoin\_data}\SpecialCharTok{$}\NormalTok{hat\_Price}
+
+
+\CommentTok{\# Plot des résidus}
+\FunctionTok{plot}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours, bitcoin\_data}\SpecialCharTok{$}\NormalTok{residus, }\AttributeTok{type =} \StringTok{"h"}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"Résidus du Modèle Additif"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Date"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Résidus"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =} \DecValTok{0}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-54-1.pdf}
+
+\subsection{4.4 Previsions sur l'evolution des prix du bitcoin pour les
+10 prochains
+jours}\label{previsions-sur-levolution-des-prix-du-bitcoin-pour-les-10-prochains-jours}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price)}
+\NormalTok{nouveau\_jours }\OtherTok{\textless{}{-}}\NormalTok{ (n}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\NormalTok{(n}\SpecialCharTok{+}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Conversion en série temporelle}
+\NormalTok{ts\_data\_bitcoin }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price, nouveau\_jours)}
+
+
+\CommentTok{\# Calcul de la tendance linéaire}
+\CommentTok{\# Nous devons créer une variable de temps pour l\textquotesingle{}ajustement du modèle linéaire}
+\NormalTok{time\_index }\OtherTok{\textless{}{-}} \FunctionTok{seq\_along}\NormalTok{(ts\_data\_bitcoin)}
+\NormalTok{tendance\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ts\_data\_bitcoin }\SpecialCharTok{\textasciitilde{}}\NormalTok{ time\_index)}
+
+\CommentTok{\# Stocker les résultats dans un objet \textasciigrave{}tendance\textasciigrave{}}
+\NormalTok{bitcoin\_data}\SpecialCharTok{$}\NormalTok{tendance\_10 }\OtherTok{\textless{}{-}} \FunctionTok{fitted}\NormalTok{(tendance\_model)}
+
+
+\CommentTok{\# Affichage des tendances pour les 10 prochains jours }
+\FunctionTok{head}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{tendance, }\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 30686.71 31014.32 31341.93 31669.54 31997.15 32324.76 32652.37 32979.98
+##  [9] 33307.59 33635.20
+\end{verbatim}
+
+\subsection{4.5. La valeur de la periodicite pour les jours a
+venir}\label{la-valeur-de-la-periodicite-pour-les-jours-a-venir}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{moment\_periode }\OtherTok{\textless{}{-}}\NormalTok{ nouveau\_jours }\SpecialCharTok{\%\%} \DecValTok{7} \SpecialCharTok{+} \DecValTok{1} 
+\NormalTok{prediction\_periode }\OtherTok{\textless{}{-}}\NormalTok{ periodicite[moment\_periode]}
+\FunctionTok{print}\NormalTok{(prediction\_periode)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  277.79741  481.83456   69.89927 -480.24264 -418.38023   83.69869
+##  [7]  -15.82432  277.79741  481.83456   69.89927
+\end{verbatim}
+
+\subsubsection{L'opération \%\% en R correspond à l'opérateur de modulo.
+Elle calcule le reste de la division entière de deux
+nombres.}\label{lopuxe9ration-en-r-correspond-uxe0-lopuxe9rateur-de-modulo.-elle-calcule-le-reste-de-la-division-entiuxe8re-de-deux-nombres.}
+
+\subsubsection{L'utilisation de l'opérateur modulo (\%\%) dans la ligne
+moment\_periode \textless- nouveau\_jours \%\% 7 + 1 est nécessaire pour
+gérer la périodicité dans les données. Voici pourquoi
+:}\label{lutilisation-de-lopuxe9rateur-modulo-dans-la-ligne-moment_periode---nouveau_jours-7-1-est-nuxe9cessaire-pour-guxe9rer-la-puxe9riodicituxe9-dans-les-donnuxe9es.-voici-pourquoi}
+
+\subsubsection{- Détermination du Cycle Hebdomadaire : En appliquant
+l'opérateur modulo 7 à chaque valeur de nouveau\_jours, vous obtenez un
+résultat qui indique la position du jour dans une semaine de 7 jours.
+Par exemple, un résultat de 1 correspond au premier jour du cycle (jour
+1), un résultat de 2 correspond au deuxième jour (jour 2), et ainsi de
+suite jusqu'à 7, après quoi le cycle recommence à
+1.}\label{duxe9termination-du-cycle-hebdomadaire-en-appliquant-lopuxe9rateur-modulo-7-uxe0-chaque-valeur-de-nouveau_jours-vous-obtenez-un-ruxe9sultat-qui-indique-la-position-du-jour-dans-une-semaine-de-7-jours.-par-exemple-un-ruxe9sultat-de-1-correspond-au-premier-jour-du-cycle-jour-1-un-ruxe9sultat-de-2-correspond-au-deuxiuxe8me-jour-jour-2-et-ainsi-de-suite-jusquuxe0-7-apruxe8s-quoi-le-cycle-recommence-uxe0-1.}
+
+\subsubsection{- Ajustement de l'Indexation : Le +1 après le modulo
+ajuste l'indexation pour qu'elle commence à 1 au lieu de 0 (ce qui
+serait le cas avec un simple modulo). Cela est utile si les éléments de
+periodicite sont indexés de 1 à 7 (plutôt que de 0 à
+6).}\label{ajustement-de-lindexation-le-1-apruxe8s-le-modulo-ajuste-lindexation-pour-quelle-commence-uxe0-1-au-lieu-de-0-ce-qui-serait-le-cas-avec-un-simple-modulo.-cela-est-utile-si-les-uxe9luxe9ments-de-periodicite-sont-indexuxe9s-de-1-uxe0-7-plutuxf4t-que-de-0-uxe0-6.}
+
+\subsubsection{- Utilisation de la Périodicité : moment\_periode est
+ensuite utilisé pour accéder aux valeurs correspondantes dans
+periodicite, ce qui permet d'extraire la valeur de la périodicité pour
+chaque jour spécifié dans
+nouveau\_jours.}\label{utilisation-de-la-puxe9riodicituxe9-moment_periode-est-ensuite-utilisuxe9-pour-accuxe9der-aux-valeurs-correspondantes-dans-periodicite-ce-qui-permet-dextraire-la-valeur-de-la-puxe9riodicituxe9-pour-chaque-jour-spuxe9cifiuxe9-dans-nouveau_jours.}
+
+\subsubsection{En résumé, cette ligne de code est utilisée pour
+s'assurer que chaque jour dans nouveau\_jours est correctement mappé à
+une position dans un cycle hebdomadaire de 7 jours, permettant ainsi
+d'extraire les valeurs correspondantes dans
+periodicite.}\label{en-ruxe9sumuxe9-cette-ligne-de-code-est-utilisuxe9e-pour-sassurer-que-chaque-jour-dans-nouveau_jours-est-correctement-mappuxe9-uxe0-une-position-dans-un-cycle-hebdomadaire-de-7-jours-permettant-ainsi-dextraire-les-valeurs-correspondantes-dans-periodicite.}
+
+\subsection{\texorpdfstring{4.6. Calcul des previsions du modele pour
+les 10 jours a venir et stockage dans un objet
+\texttt{prevision\_modele\_add}}{4.6. Calcul des previsions du modele pour les 10 jours a venir et stockage dans un objet prevision\_modele\_add}}\label{calcul-des-previsions-du-modele-pour-les-10-jours-a-venir-et-stockage-dans-un-objet-prevision_modele_add}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Nombre de jours à prévoir}
+\NormalTok{moment\_periode }\OtherTok{\textless{}{-}} \DecValTok{10}
+
+\CommentTok{\# Créer une séquence pour les nouveaux jours}
+\NormalTok{nouveau\_jours }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{nrow}\NormalTok{(bitcoin\_data) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(bitcoin\_data) }\SpecialCharTok{+}\NormalTok{ moment\_periode)}
+
+\CommentTok{\# Calculer la tendance projetée}
+\NormalTok{tendance\_previsions }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(tendance\_model, }\AttributeTok{newdata =} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Jours =}\NormalTok{ bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours[}\FunctionTok{nrow}\NormalTok{(bitcoin\_data)] }\SpecialCharTok{+} \DecValTok{1}\SpecialCharTok{:}\NormalTok{moment\_periode))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: 'newdata' avait 10 lignes mais les variables trouvées ont 90 lignes
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculer le moment de la période pour chaque nouveau jour}
+\NormalTok{moment\_periode }\OtherTok{\textless{}{-}}\NormalTok{ nouveau\_jours }\SpecialCharTok{\%\%} \DecValTok{7} \SpecialCharTok{+} \DecValTok{1}
+
+\CommentTok{\# Appliquer la périodicité aux prévisions}
+\NormalTok{prediction\_periode }\OtherTok{\textless{}{-}}\NormalTok{ periodicite[moment\_periode]}
+
+\CommentTok{\# Calcul des prévisions finales}
+\NormalTok{prevision\_modele\_add }\OtherTok{\textless{}{-}}\NormalTok{ tendance\_previsions }\SpecialCharTok{+}\NormalTok{ prediction\_periode}
+
+\CommentTok{\# Stocker les prévisions dans un objet}
+\NormalTok{prevision\_modele\_add }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Jours =}\NormalTok{ bitcoin\_data}\SpecialCharTok{$}\NormalTok{Jours[}\FunctionTok{nrow}\NormalTok{(bitcoin\_data)] }\SpecialCharTok{+} \DecValTok{1}\SpecialCharTok{:}\NormalTok{moment\_periode,}
+                                   \AttributeTok{Previsions =}\NormalTok{ prevision\_modele\_add)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in 1:moment_periode: numerical expression has 10 elements: only the
+## first used
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(prevision\_modele\_add)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Jours Previsions
+## 1  2021-04-01   30964.51
+## 2  2021-04-01   31496.16
+## 3  2021-04-01   31411.83
+## 4  2021-04-01   31189.30
+## 5  2021-04-01   31578.77
+## 6  2021-04-01   32408.46
+## 7  2021-04-01   32636.55
+## 8  2021-04-01   33257.78
+## 9  2021-04-01   33789.42
+## 10 2021-04-01   33705.10
+## 11 2021-04-01   34240.61
+## 12 2021-04-01   34772.25
+## 13 2021-04-01   34687.93
+## 14 2021-04-01   34465.39
+## 15 2021-04-01   34854.86
+## 16 2021-04-01   35684.55
+## 17 2021-04-01   35912.64
+## 18 2021-04-01   36533.87
+## 19 2021-04-01   37065.52
+## 20 2021-04-01   36981.19
+## 21 2021-04-01   37516.70
+## 22 2021-04-01   38048.34
+## 23 2021-04-01   37964.02
+## 24 2021-04-01   37741.49
+## 25 2021-04-01   38130.96
+## 26 2021-04-01   38960.65
+## 27 2021-04-01   39188.73
+## 28 2021-04-01   39809.96
+## 29 2021-04-01   40341.61
+## 30 2021-04-01   40257.28
+## 31 2021-04-01   40792.79
+## 32 2021-04-01   41324.44
+## 33 2021-04-01   41240.11
+## 34 2021-04-01   41017.58
+## 35 2021-04-01   41407.05
+## 36 2021-04-01   42236.74
+## 37 2021-04-01   42464.83
+## 38 2021-04-01   43086.06
+## 39 2021-04-01   43617.70
+## 40 2021-04-01   43533.38
+## 41 2021-04-01   44068.88
+## 42 2021-04-01   44600.53
+## 43 2021-04-01   44516.20
+## 44 2021-04-01   44293.67
+## 45 2021-04-01   44683.14
+## 46 2021-04-01   45512.83
+## 47 2021-04-01   45740.92
+## 48 2021-04-01   46362.15
+## 49 2021-04-01   46893.80
+## 50 2021-04-01   46809.47
+## 51 2021-04-01   47344.98
+## 52 2021-04-01   47876.62
+## 53 2021-04-01   47792.30
+## 54 2021-04-01   47569.76
+## 55 2021-04-01   47959.24
+## 56 2021-04-01   48788.92
+## 57 2021-04-01   49017.01
+## 58 2021-04-01   49638.24
+## 59 2021-04-01   50169.89
+## 60 2021-04-01   50085.56
+## 61 2021-04-01   50621.07
+## 62 2021-04-01   51152.72
+## 63 2021-04-01   51068.39
+## 64 2021-04-01   50845.86
+## 65 2021-04-01   51235.33
+## 66 2021-04-01   52065.02
+## 67 2021-04-01   52293.10
+## 68 2021-04-01   52914.34
+## 69 2021-04-01   53445.98
+## 70 2021-04-01   53361.66
+## 71 2021-04-01   53897.16
+## 72 2021-04-01   54428.81
+## 73 2021-04-01   54344.48
+## 74 2021-04-01   54121.95
+## 75 2021-04-01   54511.42
+## 76 2021-04-01   55341.11
+## 77 2021-04-01   55569.20
+## 78 2021-04-01   56190.43
+## 79 2021-04-01   56722.07
+## 80 2021-04-01   56637.75
+## 81 2021-04-01   57173.26
+## 82 2021-04-01   57704.90
+## 83 2021-04-01   57620.58
+## 84 2021-04-01   57398.04
+## 85 2021-04-01   57787.52
+## 86 2021-04-01   58617.20
+## 87 2021-04-01   58845.29
+## 88 2021-04-01   59466.52
+## 89 2021-04-01   59998.17
+## 90 2021-04-01   59913.84
+\end{verbatim}
+
+\subsection{4.7. Visualisation de l'evolution du Prix du
+bitcoin}\label{visualisation-de-levolution-du-prix-du-bitcoin}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{xlim }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, n }\SpecialCharTok{+} \DecValTok{10}\NormalTok{)}
+\NormalTok{ylim }\OtherTok{\textless{}{-}} \FunctionTok{range}\NormalTok{(}\FunctionTok{c}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price, prevision\_modele\_add}\SpecialCharTok{$}\NormalTok{Previsions), }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{Price, }\AttributeTok{type =} \StringTok{\textquotesingle{}l\textquotesingle{}}\NormalTok{, }\AttributeTok{xlim =}\NormalTok{ xlim, }\AttributeTok{ylim =}\NormalTok{ ylim, }\AttributeTok{ylab =} \StringTok{"Price"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Days"}\NormalTok{)}
+
+
+\FunctionTok{lines}\NormalTok{(bitcoin\_data}\SpecialCharTok{$}\NormalTok{hat\_Price, }\AttributeTok{col =} \StringTok{\textquotesingle{}blue\textquotesingle{}}\NormalTok{)}
+
+
+\FunctionTok{lines}\NormalTok{(prevision\_modele\_add}\SpecialCharTok{$}\NormalTok{Previsions, }\AttributeTok{type =} \StringTok{\textquotesingle{}p\textquotesingle{}}\NormalTok{, }\AttributeTok{pch =} \DecValTok{17}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TP-1-SERIES-CHRONOLOGIQUES-CFD-2024-MOHAMED-FALILOU-FALL_files/figure-latex/unnamed-chunk-59-1.pdf}
+
+\end{document}
